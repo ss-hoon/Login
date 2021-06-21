@@ -1,7 +1,7 @@
 <template>
     <div class="inputId">
         <v-text-field
-        label="ID"
+            label="ID"
         ></v-text-field>
     </div>
 </template>

@@ -1,7 +1,31 @@
+/* 로그인 화면 전체 */
 .login {
-  margin: 5% 40%;
+  margin: 5% 38%;
 }
 
+.option {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    padding: 0;
+  }
+
+  a {
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+  }
+}
+
+/* 로그인 버튼 */
 #btnLogin {
   width: 100%;
+}
+
+/* input label 글자 크기 */
+.v-input {
+  .v-label {
+    font-size: 12px;
+  }
 }
