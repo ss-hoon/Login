@@ -8,6 +8,7 @@
             <SearchAccount/>
         </div>
         <BtnLogin/>
+        <SignUp/>
     </div>
 </template>
 <script>
@@ -17,6 +18,7 @@ import InputPW from '@/components/login/InputPW.vue'
 import ChkSaveId from '@/components/login/ChkSaveId.vue'
 import SearchAccount from '@/components/login/SearchAccount.vue'
 import BtnLogin from '@/components/login/BtnLogin.vue'
+import SignUp from '@/components/login/SignUp.vue'
 
 export default {
     name: 'Login',
@@ -26,7 +28,8 @@ export default {
         InputPW,
         ChkSaveId,
         SearchAccount,
-        BtnLogin
+        BtnLogin,
+        SignUp
     }
 }
 </script>

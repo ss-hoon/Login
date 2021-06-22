@@ -1,6 +1,6 @@
 <template>
-    <div class="logo">
-        <img src="@/assets/imgs/logo.png" alt="로고"/>
+    <div class="signUp">
+        <v-btn id="signUp">회원가입</v-btn>
     </div>
 </template>
 
