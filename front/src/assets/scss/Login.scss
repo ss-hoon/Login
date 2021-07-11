@@ -1,12 +1,15 @@
 /* 로그인 화면 전체 */
 .login {
-  margin: 5% 38%;
+  max-width: 25%;
+  margin: 0 auto;
+  padding-top: 40px;
 }
 
 /* 아이디 저장, 계정 찾기 */
 .option {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   div {
     padding: 0;
   }

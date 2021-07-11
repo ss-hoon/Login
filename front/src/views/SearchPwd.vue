@@ -1,6 +1,6 @@
 <template>
-    <div class="logo">
-        <img src="@/assets/imgs/logo.png" alt="로고"/>
+    <div>
+        <h1>This is Password Search page.</h1>
     </div>
 </template>
 

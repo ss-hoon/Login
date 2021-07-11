@@ -1,8 +1,6 @@
 <template>
     <div>
-        <v-btn flat color="green">
-      Primary
-    </v-btn>
+        <h1>This is ID Search page.</h1>
     </div>
 </template>
 
@@ -11,3 +9,7 @@
         
     }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

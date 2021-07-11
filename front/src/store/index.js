@@ -20,10 +20,10 @@ export default new Vuex.Store({
   },
   mutations: {
     setUserId: (state, payload) => {
-      state.userInfo.userId = payload.userId;
+      state.userInfo.userId = payload;
     },
     setUserPwd: (state, payload) => {
-      state.userInfo.userPwd = payload.userPwd;
+      state.userInfo.userPwd = payload;
     }
   },
   actions: {
