@@ -40,14 +40,31 @@
         <div class="signUp">
             <v-btn id="signUp">회원가입</v-btn>
         </div>
+        
+        <ul class="SNSLogin">
+            <li>
+                <div class="naverLogin">
+                    <img src="@assets/imgs/naverLogin.png" alt="네이버 로그인"/>
+                </div>
+            </li>
+            <li>
+                <div class="kakaoLogin">
+                    <img src="@assets/imgs/kakaoLogin.png" alt="카카오 로그인"/>
+                </div>
+            </li>
+            <li>
+                <div class="googleLogin">
+                    <img src="@assets/imgs/googleLogin.png" alt="구글 로그인"/>
+                </div>
+            </li>
+        </ul>
     </div>
 </template>
 <script>
+import axios from "axios";
+
 export default {
     name: 'Login',
-    components: {
-
-    },
     data() {
         return {
             loginId : "",
@@ -68,12 +85,32 @@ export default {
         }
     },
     created() {
-        
+        if(this.$cookies.isKey("saveId")){
+            this.loginId = this.$cookies.get("saveId");
+            this.chkSaveId = true;
+        }
     },
     methods: {
-        onClickLogin() {
-            console.log(`로그인 ID : ${this.$store.getters.getUserId}`);
-            console.log(`로그인 PWD : ${this.$store.getters.getUserPwd}`);
+        async onClickLogin() {
+
+            if(this.chkSaveId)
+                this.$cookies.set("saveId", this.$store.getters.getUserId, "7d");
+            else
+                this.$cookies.remove("saveId");
+
+            const param = {
+                userId: this.$store.getters.getUserId,
+                userPwd: this.$store.getters.getUserPwd
+            };
+
+            await axios
+                .post("/api/authentication/login", param)
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch((error) => {
+                    alert(error.response.data.message || "서버가 작동하지 않습니다.");
+                })
         }
     },
     watch: {

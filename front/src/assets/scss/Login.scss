@@ -9,7 +9,7 @@
 .logo {
     max-width: 100%;
     img {
-        width: 50%;
+        width: 40%;
         display: block;
         margin: 0px auto;
     }
@@ -54,4 +54,15 @@
 #signUp {
     margin-top: 20px;
     width: 100%;
+}
+
+.SNSLogin {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 35px;
+    img {
+        width: 70%;
+        height: 45px;
+        margin: 5px 0px;
+    }
 }
