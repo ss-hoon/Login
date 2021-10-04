@@ -1,57 +1,79 @@
 /* 로그인 화면 전체 */
 
 .login {
-    max-width: 25%;
-    margin: 0 auto;
-    padding-top: 40px;
+  max-width: 25%;
+  margin: 0 auto;
+  padding-top: 40px;
 }
 
 .logo {
-    max-width: 100%;
-    img {
-        width: 50%;
-        display: block;
-        margin: 0px auto;
-    }
+  max-width: 100%;
+  img {
+    width: 50%;
+    display: block;
+    margin: 0px auto;
+  }
 }
-
 
 /* 아이디 저장, 계정 찾기 */
 
 .option {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    div {
-        padding: 0;
-    }
-    a {
-        color: black;
-        font-size: 12px;
-        text-decoration: none;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  div {
+    padding: 0;
+  }
+  a {
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+  }
 }
-
 
 /* 로그인 버튼 */
 
 #btnLogin {
-    width: 100%;
+  width: 100%;
 }
-
 
 /* input label 글자 크기 */
 
 .v-input {
-    .v-label {
-        font-size: 12px;
-    }
+  .v-label {
+    font-size: 12px;
+  }
 }
-
 
 /* 회원가입 버튼 그룹 */
 
 #signUp {
-    margin-top: 20px;
-    width: 100%;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* sns 로그인 hr */
+.hr-sns {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 12px;
+  margin: 18px 0px;
+}
+.hr-sns::before,
+.hr-sns::after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 16px;
+}
+
+/* sns 로그인 버튼 */
+.snsLogin > img {
+  margin-left: 10px;
+  margin-right: 10px;
 }
