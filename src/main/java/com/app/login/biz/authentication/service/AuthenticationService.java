@@ -9,32 +9,38 @@ import com.app.login.biz.authentication.mapper.AuthenticationMapper;
 import com.app.login.biz.authentication.model.Member;
 import com.app.login.sys.util.Result;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.ObjectUtils;
+
 @Service
+@Slf4j
 public class AuthenticationService {
 	
 	@Autowired
 	private AuthenticationMapper authenticationMapper;
 
+	/**
+	 * 로그인
+	 * @param member	사용자 정보
+	 * @return	로그인 결과
+	 */
 	public ResponseEntity<Result> login(Member member) {
-		
 		Member memberInfo = authenticationMapper.getUserInfo(member.getUserId());
-		
-		if(memberInfo == null) {
-			Result result = new Result().loginFailInstance();
-			
-			result.setMessage("등록된 아이디가 없습니다.");
-			
-			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(result);
+
+		// 사용자 ID가 없는 경우
+		if(ObjectUtils.isEmpty(memberInfo)) {
+			Result result = Result.loginIdFailInstance();
+
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(result);
 		}
-		
+
+		// 비밀번호가 다른 경우
 		if(!memberInfo.getUserPwd().equals(member.getUserPwd())) {
-			Result result = new Result().loginFailInstance();
-			
-			result.setMessage("비밀번호가 다릅니다.");
-			
-			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(result);
+			Result result = Result.loginPwdFailInstance();
+
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(result);
 		}
-		
-		return ResponseEntity.ok(new Result().loginSuccessInstance());
+
+		return ResponseEntity.ok(Result.loginSuccessInstance());
 	}
 }

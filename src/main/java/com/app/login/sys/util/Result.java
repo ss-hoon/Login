@@ -1,40 +1,44 @@
 package com.app.login.sys.util;
 
-import org.springframework.http.HttpStatus;
-
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
 public class Result {
 
-	static final String LOGIN_SUCCESS = "로그인 성공";
+	static final int LOGIN_SUCCESS = 10;
+	static final int LOGIN_ID_FAIL = 31;
+	static final int LOGIN_PWD_FAIL = 32;
 	
-	HttpStatus statusCode;
 	String message;
+	int resultCode;
 	Object data;
 	Object error;
 	
-	public Result instance() {
-		return new Result();
+	protected Result() {
+		
 	}
 	
 	// 로그인 성공 Result
-	public Result loginSuccessInstance() {
+	public static Result loginSuccessInstance() {
 		Result result = new Result();
-		
-		result.setStatusCode(HttpStatus.OK);
-		result.setMessage(LOGIN_SUCCESS);
+		result.resultCode = LOGIN_SUCCESS;
 		
 		return result;
 	}
 	
-	// 로그인 실패 Result
-	public Result loginFailInstance() {
+	// 아이디 매칭 실패 Result
+	public static Result loginIdFailInstance() {
 		Result result = new Result();
+		result.resultCode = LOGIN_ID_FAIL;
 		
-		result.setStatusCode(HttpStatus.FORBIDDEN);
+		return result;
+	}
+	
+	// 비밀번호 매칭 실패 Result
+	public static Result loginPwdFailInstance() {
+		Result result = new Result();
+		result.resultCode = LOGIN_PWD_FAIL;
 		
 		return result;
 	}
