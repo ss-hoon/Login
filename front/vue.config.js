@@ -4,11 +4,8 @@ module.exports = {
   devServer: {
     proxy: {
         "/api": {
-            target: "http://localhost:9000/api",
-            changeOrigin: true,
-            pathRewrite: {
-                "^/api": "",
-            },
+          target: "http://localhost:9000",
+          changeOrigin: true,
         },
     },
   },
@@ -24,6 +21,8 @@ module.exports = {
         "@assets": path.resolve(__dirname, "src/assets"),
         "@components": path.resolve(__dirname, "src/components"),
         "@views": path.resolve(__dirname, "src/views"),
+        "@api": path.resolve(__dirname, "src/api"),
+        "@router": path.resolve(__dirname, "src/router")
       },
     },
   },
