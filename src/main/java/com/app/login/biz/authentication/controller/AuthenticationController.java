@@ -11,15 +11,23 @@ import com.app.login.biz.authentication.model.Member;
 import com.app.login.biz.authentication.service.AuthenticationService;
 import com.app.login.sys.util.Result;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/api/authentication")
+@Slf4j
 public class AuthenticationController {
 	
 	@Autowired
 	private AuthenticationService authenticationService;
 
+	/**
+	 * 로그인
+	 * @param member	사용자 정보
+	 * @return 로그인 결과
+	 */
 	@PostMapping("/login")
-	public ResponseEntity<Result> login(@RequestBody Member member) {		
-		return authenticationService.login(member);
+	public ResponseEntity<Result> login(@RequestBody Member member) {
+		return ResponseEntity.ok().body(authenticationService.login(member));
 	}
 }
